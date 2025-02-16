@@ -465,13 +465,19 @@ const Home = () => {
                 key={index}
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "25rem 1fr",
                   gap: theme.spacing(2),
                   padding: theme.spacing(2),
                   borderRadius: 2,
                   boxShadow: theme.shadows[4],
                   background:
                     "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)",
+                  "@media (max-width: 640px)": {
+                    gridTemplateColumns: "1fr",
+                    justifyItems: "center",
+                  },
+                  "@media (min-width: 641px)": {
+                    gridTemplateColumns: "22rem 1fr",
+                  },
                 }}
               >
                 <StyledImageComponent
@@ -487,11 +493,43 @@ const Home = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
+                    justifyContent: "center",
+
                     gap: theme.spacing(2),
                   }}
                 >
-                  <Typography variant="h6">{project.title}</Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {project.title}
+                  </Typography>
                   <Typography variant="body1">{project.description}</Typography>
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: theme.spacing(2),
+                    }}
+                  >
+                    {project.technologies &&
+                      project.technologies.length > 0 &&
+                      project.technologies.map((tech, index) => (
+                        <StyledImageComponent
+                          key={index}
+                          src={`images/skills/${tech.toLowerCase()}.png`}
+                          alt={tech}
+                          sx={{
+                            width: 50,
+                            height: 50,
+                          }}
+                        />
+                      ))}
+                  </Box>
+
                   <Box
                     sx={{
                       display: "flex",

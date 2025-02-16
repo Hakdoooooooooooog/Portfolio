@@ -139,19 +139,30 @@ export const projects: Array<{
   imgSrc: string;
   github: string;
   demo?: string;
+  technologies?: Array<string>;
 }> = [
-  {
-    title: "Portfolio",
-    description:
-      "A personal portfolio website showcasing my skills and projects.",
-    imgSrc: "images/projects/portfolio.png",
-    github: "",
-  },
   {
     title: "TOPCIT LCMS",
     description:
       "A web-based learners content management system forpractical competency in ICT.",
     imgSrc: "images/projects/topcit-thumbnail.png",
     github: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
+    technologies: [
+      "React JS",
+      "Typescript",
+      "Tailwind CSS",
+      "Material UI",
+      "NodeJS + Express JS",
+      "PostgreSQL",
+      "AWS S3",
+    ],
+  },
+  {
+    title: "Portfolio",
+    description:
+      "A personal portfolio website showcasing my skills and projects.",
+    imgSrc: "images/projects/portfolio-thumbnail.png",
+    github: "https://github.com/Hakdoooooooooooog/Portfolio",
+    technologies: ["React JS", "Typescript", "Tailwind CSS", "Material UI"],
   },
 ];
