@@ -458,9 +458,15 @@ const Home = () => {
           sx={{
             display: "grid",
             width: "100%",
-            padding: theme.spacing(15),
-            gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
             gap: theme.spacing(5),
+            "@media (max-width: 640px)": {
+              gridTemplateColumns: "1fr",
+              padding: theme.spacing(2),
+            },
+            "@media (min-width: 641px)": {
+              gridTemplateColumns: "repeat(auto-fit, minmax(25rem, 1fr))",
+              padding: theme.spacing(10),
+            },
           }}
         >
           {projects.length > 0 &&
@@ -478,9 +484,10 @@ const Home = () => {
                   boxShadow: theme.shadows[4],
                   background:
                     "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)",
-                  gridTemplateAreas: `"img"
-                                      "content"
-                                      "buttons"
+                  gridTemplateAreas: `
+                  "img"
+                  "content"
+                  "buttons"
                   `,
                 }}
               >
