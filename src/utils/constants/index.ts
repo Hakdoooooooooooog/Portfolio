@@ -103,7 +103,17 @@ export const skills: {
 } = {
   frontend: ["HTML5", "Tailwind CSS", "React JS", "Typescript", "Material UI"],
   backend: ["NodeJS + Express JS", "PostgreSQL", "MySQL"],
-  others: ["Git", "Netlify", "AWS S3", "Cisco Packet Tracer", "Java"],
+  others: [
+    "Git",
+    "Netlify",
+    "AWS S3",
+    "Cisco Packet Tracer",
+    "Java",
+    "React Query",
+    "Zustand",
+    "Prisma",
+    "Zod",
+  ],
 };
 
 export const certifications: Array<{
@@ -152,10 +162,31 @@ export const projects: Array<{
       "Typescript",
       "Tailwind CSS",
       "Material UI",
+      "Zustand",
+      "Zod",
+      "React Query",
+    ],
+  },
+  {
+    title: "Topcit LCMS API",
+    description:
+      "A RESTful API for the TOPCIT LCMS application using NodeJS and Express JS.",
+    github: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
+    technologies: [
       "NodeJS + Express JS",
       "PostgreSQL",
       "AWS S3",
+      "Prisma",
+      "Netlify",
     ],
+  },
+  {
+    title: "Event Management System API",
+    description:
+      "A RESTful API for an event management system using NodeJS and Express JS.",
+    github:
+      "https://github.com/Hakdoooooooooooog/Event-management-system-server",
+    technologies: ["NodeJS + Express JS", "MySQL", "Prisma"],
   },
   {
     title: "Portfolio",

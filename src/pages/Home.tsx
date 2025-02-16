@@ -236,12 +236,12 @@ const Home = () => {
                 display: "grid",
                 width: "100%",
                 justifyItems: "center",
-                rowGap: theme.spacing(2),
+                gap: theme.spacing(2),
                 "@media (max-width: 640px)": {
                   gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                 },
                 "@media (min-width: 641px)": {
-                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
                 },
               }}
             >
@@ -282,8 +282,13 @@ const Home = () => {
                 display: "grid",
                 width: "100%",
                 justifyItems: "center",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                rowGap: theme.spacing(2),
+                gap: theme.spacing(2),
+                "@media (max-width: 640px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                },
+                "@media (min-width: 641px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                },
               }}
             >
               {skills.backend.length > 0 &&
@@ -323,8 +328,13 @@ const Home = () => {
                 display: "grid",
                 width: "100%",
                 justifyItems: "center",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                rowGap: theme.spacing(2),
+                gap: theme.spacing(2),
+                "@media (max-width: 640px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                },
+                "@media (min-width: 641px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                },
               }}
             >
               {skills.others.length > 0 &&
@@ -448,8 +458,8 @@ const Home = () => {
           sx={{
             display: "grid",
             width: "100%",
-            padding: theme.spacing(5),
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            padding: theme.spacing(15),
+            gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
             gap: theme.spacing(5),
           }}
         >
