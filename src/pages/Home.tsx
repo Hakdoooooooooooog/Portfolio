@@ -194,6 +194,12 @@ const Home = () => {
             "@media (min-width: 641px)": {
               gridTemplateAreas: `
                     "technologies certifications"
+                  `,
+              gridTemplateColumns: "30rem  1fr",
+            },
+            "@media (min-width: 821px)": {
+              gridTemplateAreas: `
+                    "technologies certifications"
 
                   `,
               gridTemplateColumns: "1fr  1fr",
@@ -416,12 +422,21 @@ const Home = () => {
                           key={index}
                           sx={{
                             display: "grid",
-                            gridTemplateColumns: "auto 1fr",
                             gap: theme.spacing(2),
                             alignItems: "center",
+                            textAlign: "center",
                             padding: 1,
                             borderRadius: 2,
                             backgroundColor: "rgba(255, 255, 255, 0.1)",
+                            "@media (max-width: 640px)": {
+                              gridTemplateColumns: "1fr",
+                            },
+                            "@media (min-width: 820px)": {
+                              gridTemplateColumns: "1fr",
+                            },
+                            "@media (min-width: 1024px)": {
+                              gridTemplateColumns: "1fr 1fr",
+                            },
                           }}
                         >
                           <StyledImageComponent
