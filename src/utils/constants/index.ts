@@ -103,7 +103,7 @@ export const skills: {
 } = {
   frontend: ["HTML5", "Tailwind CSS", "React JS", "Typescript", "Material UI"],
   backend: ["NodeJS + Express JS", "PostgreSQL", "MySQL"],
-  others: ["Git", "Netlify", "AWS S3", "Cisco Packet Tracer"],
+  others: ["Git", "Netlify", "AWS S3", "Cisco Packet Tracer", "Java"],
 };
 
 export const certifications: Array<{
@@ -136,7 +136,7 @@ export const certifications: Array<{
 export const projects: Array<{
   title: string;
   description: string;
-  imgSrc: string;
+  imgSrc?: string;
   github: string;
   demo?: string;
   technologies?: Array<string>;
@@ -144,7 +144,7 @@ export const projects: Array<{
   {
     title: "TOPCIT LCMS",
     description:
-      "A web-based learners content management system forpractical competency in ICT.",
+      "A web-based learners content management system for practical competency in ICT.",
     imgSrc: "images/projects/topcit-thumbnail.png",
     github: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     technologies: [
@@ -165,5 +165,19 @@ export const projects: Array<{
     github: "https://github.com/Hakdoooooooooooog/Portfolio",
     demo: "https://beamish-toffee-d2d8f4.netlify.app/",
     technologies: ["React JS", "Typescript", "Tailwind CSS", "Material UI"],
+  },
+  {
+    title: "Ordering System",
+    description:
+      "A simple cmd-based ordering system for a computer store using Java.",
+    github: "https://github.com/Hakdoooooooooooog/Ordering-System",
+    technologies: ["Java"],
+  },
+  {
+    title: "Rock Paper Scissors",
+    description:
+      "A simple cmd-based rock paper scissors and text-based RPG game using Java.",
+    github: "https://github.com/Hakdoooooooooooog/Game-Project-Java",
+    technologies: ["Java"],
   },
 ];

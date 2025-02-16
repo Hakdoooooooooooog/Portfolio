@@ -26,7 +26,8 @@ const Home = () => {
         sx={{
           flexWrap: "wrap",
           gap: theme.spacing(5),
-          padding: theme.spacing(5),
+          maxWidth: "75vw",
+          marginX: "auto",
           marginY: theme.spacing(5),
           "@media (max-width: 640px)": {
             flexDirection: "column",
@@ -46,7 +47,7 @@ const Home = () => {
             borderRadius: "50%",
             width: 300,
             height: 300,
-            flex: "0 0 10%",
+            flex: "0 0 auto",
           }}
         />
         <Box
@@ -56,7 +57,7 @@ const Home = () => {
             justifyContent: "center",
             flexDirection: "column",
             gap: theme.spacing(5),
-            flex: "1 1 80%",
+            flex: "1 1 auto",
           }}
         >
           <Box
@@ -237,10 +238,10 @@ const Home = () => {
                 justifyItems: "center",
                 rowGap: theme.spacing(2),
                 "@media (max-width: 640px)": {
-                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                 },
                 "@media (min-width: 641px)": {
-                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
                 },
               }}
             >
@@ -445,8 +446,10 @@ const Home = () => {
         <Typography variant="h4">My Notable Projects</Typography>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            width: "100%",
+            padding: theme.spacing(5),
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: theme.spacing(5),
           }}
         >
@@ -456,36 +459,39 @@ const Home = () => {
                 key={index}
                 sx={{
                   display: "grid",
-                  gap: theme.spacing(2),
+                  justifyItems: "center",
+                  alignItems: "center",
+                  textAlign: "center",
                   padding: theme.spacing(2),
+                  gap: theme.spacing(2),
                   borderRadius: 2,
                   boxShadow: theme.shadows[4],
                   background:
                     "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)",
-                  "@media (max-width: 640px)": {
-                    gridTemplateColumns: "1fr",
-                    justifyItems: "center",
-                  },
-                  "@media (min-width: 641px)": {
-                    gridTemplateColumns: "22rem 1fr",
-                  },
+                  gridTemplateAreas: `"img"
+                                      "content"
+                                      "buttons"
+                  `,
                 }}
               >
-                <StyledImageComponent
-                  src={project.imgSrc}
-                  alt={project.title}
-                  sx={{
-                    width: 300,
-                    height: 200,
-                    borderRadius: 2,
-                  }}
-                />
+                {project.imgSrc && (
+                  <StyledImageComponent
+                    src={project.imgSrc}
+                    alt={project.title}
+                    sx={{
+                      gridArea: "img",
+                      width: 250,
+                      height: 150,
+                      borderRadius: 2,
+                    }}
+                  />
+                )}
                 <Box
                   sx={{
+                    gridArea: "content",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
-
+                    alignItems: "center",
                     gap: theme.spacing(2),
                   }}
                 >
@@ -520,52 +526,52 @@ const Home = () => {
                         />
                       ))}
                   </Box>
-
+                </Box>
+                <Box
+                  sx={{
+                    gridArea: "buttons",
+                    display: "flex",
+                    gap: theme.spacing(2),
+                  }}
+                >
                   <Box
+                    component={"a"}
+                    href={project.github}
+                    target="_blank"
                     sx={{
                       display: "flex",
-                      gap: theme.spacing(2),
+                      alignItems: "center",
+                      gap: theme.spacing(1),
+                      padding: theme.spacing(1),
+                      borderRadius: 2,
+                      backgroundColor:
+                        theme.palette.mode === "dark" ? "#666" : "#f9fafa",
+                      color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                      textDecoration: "none",
                     }}
                   >
-                    <Box
-                      component={"a"}
-                      href={project.github}
-                      target="_blank"
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: theme.spacing(1),
-                        padding: theme.spacing(1),
-                        borderRadius: 2,
-                        backgroundColor:
-                          theme.palette.mode === "dark" ? "#666" : "#f9fafa",
-                        color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                        textDecoration: "none",
-                      }}
-                    >
-                      <GitHubIcon />
-                      <Typography>GitHub</Typography>
-                    </Box>
+                    <GitHubIcon />
+                    <Typography>GitHub</Typography>
+                  </Box>
 
-                    <Box
-                      component={"a"}
-                      href={project.demo}
-                      target="_blank"
-                      sx={{
-                        display: project.demo ? "flex" : "none",
-                        alignItems: "center",
-                        gap: theme.spacing(1),
-                        padding: theme.spacing(1),
-                        borderRadius: 2,
-                        backgroundColor:
-                          theme.palette.mode === "dark" ? "#666" : "#f9fafa",
-                        color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                        textDecoration: "none",
-                      }}
-                    >
-                      <SendIcon />
-                      <Typography>Visit</Typography>
-                    </Box>
+                  <Box
+                    component={"a"}
+                    href={project.demo}
+                    target="_blank"
+                    sx={{
+                      display: project.demo ? "flex" : "none",
+                      alignItems: "center",
+                      gap: theme.spacing(1),
+                      padding: theme.spacing(1),
+                      borderRadius: 2,
+                      backgroundColor:
+                        theme.palette.mode === "dark" ? "#666" : "#f9fafa",
+                      color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <SendIcon />
+                    <Typography>Visit</Typography>
                   </Box>
                 </Box>
               </Card>
