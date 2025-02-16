@@ -194,8 +194,8 @@ const Home = () => {
             },
             "@media (min-width: 641px)": {
               gridTemplateAreas: `
-                    "frontend  certifications"
-                    "backend   certifications"
+                    "frontend certifications"
+                    "backend certifications"
                     "others certifications"
 
                   `,
