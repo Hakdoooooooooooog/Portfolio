@@ -464,7 +464,7 @@ const Home = () => {
               padding: theme.spacing(2),
             },
             "@media (min-width: 641px)": {
-              gridTemplateColumns: "repeat(auto-fit, minmax(25rem, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(30rem, 1fr))",
               padding: theme.spacing(10),
             },
           }}
