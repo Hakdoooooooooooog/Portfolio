@@ -205,7 +205,7 @@ export const projects: Array<{
     technologies: ["Java"],
   },
   {
-    title: "Rock Paper Scissors",
+    title: "Rock Paper Scissors and Text-based RPG Game",
     description:
       "A simple cmd-based rock paper scissors and text-based RPG game using Java.",
     github: "https://github.com/Hakdoooooooooooog/Game-Project-Java",
