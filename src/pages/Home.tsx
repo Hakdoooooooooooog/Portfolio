@@ -185,28 +185,28 @@ const Home = () => {
               "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)",
             "@media (max-width: 640px)": {
               gridTemplateAreas: `
-                    "frontend"
-                    "backend"
-                    "others"
+                    "technologies"
                     "certifications"
                   `,
               gridTemplateColumns: "1fr",
             },
             "@media (min-width: 641px)": {
               gridTemplateAreas: `
-                    "frontend certifications"
-                    "backend certifications"
-                    "others certifications"
+                    "technologies certifications"
 
                   `,
-              gridTemplateColumns: "50vw  1fr",
+              gridTemplateColumns: "1fr  1fr",
             },
           }}
         >
           <Box
             sx={{
-              gridArea: "frontend",
-              alignSelf: "center",
+              gridArea: "technologies",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: theme.spacing(10),
+              width: "100%",
             }}
           >
             <Typography
@@ -235,8 +235,13 @@ const Home = () => {
                 display: "grid",
                 width: "100%",
                 justifyItems: "center",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                 rowGap: theme.spacing(2),
+                "@media (max-width: 640px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                },
+                "@media (min-width: 641px)": {
+                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                },
               }}
             >
               {skills.frontend.length > 0 &&
@@ -249,14 +254,7 @@ const Home = () => {
                   />
                 ))}
             </Box>
-          </Box>
 
-          <Box
-            sx={{
-              gridArea: "backend",
-              alignSelf: "center",
-            }}
-          >
             <Typography
               variant="h4"
               sx={{
@@ -297,14 +295,7 @@ const Home = () => {
                   />
                 ))}
             </Box>
-          </Box>
 
-          <Box
-            sx={{
-              gridArea: "others",
-              alignSelf: "center",
-            }}
-          >
             <Typography
               variant="h4"
               sx={{
