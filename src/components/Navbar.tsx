@@ -21,6 +21,7 @@ const Navbar = () => {
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
           <Switch
+            id="darkModeSwitch"
             checked={darkMode}
             onChange={toggleDarkMode}
             color="default"
