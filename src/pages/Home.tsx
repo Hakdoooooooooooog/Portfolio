@@ -30,7 +30,7 @@ const Home = () => {
         <StyledImageComponent
           src="/images/profile.jpg"
           alt="profile picture"
-          className="!rounded-full sm:max-w-[20vw] max-w-full mb-10 border-4 border-[#000] dark:border-[#fff] aspect-square"
+          className="!rounded-full max-w-full sm:max-w-[40vw] md:max-w[35vw] lg:max-w[30vw] xl:max-w-[25vw] mb-10 border-4 border-[#000] dark:border-[#fff] aspect-square"
         />
         <Box component={"div"} className="flex flex-wrap">
           <Box
@@ -165,7 +165,7 @@ const Home = () => {
                 </Typography>
                 <Box
                   component={"div"}
-                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(10vw,1fr))]"
+                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(17vw,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(12vw,1fr))]"
                 >
                   {skill.skills.length > 0 &&
                     skill.skills.map((skill, index) => (
@@ -183,7 +183,7 @@ const Home = () => {
 
           <Box
             component={"div"}
-            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff] lg:max-h-[150dvh] xl:max-h-[100dvh] lg:overflow-y-auto lg:scroll-mr-2.5"
+            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff] lg:max-h-[150dvh] xl:max-h-[110dvh] lg:overflow-y-auto scroll-mr-2.5"
             sx={{
               "&::-webkit-scrollbar": {
                 width: 5,

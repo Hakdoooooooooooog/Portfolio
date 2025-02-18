@@ -122,7 +122,7 @@ export const skills: Array<{
   },
   {
     name: "Backend",
-    skills: ["NodeJS + Express JS", "PostgreSQL", "MySQL"],
+    skills: ["NodeJS + Express JS", "PostgreSQL", "MySQL", "Prisma"],
   },
   {
     name: "Others",
@@ -134,7 +134,6 @@ export const skills: Array<{
       "Java",
       "React Query",
       "Zustand",
-      "Prisma",
       "Zod",
     ],
   },
