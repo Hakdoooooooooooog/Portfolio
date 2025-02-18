@@ -96,25 +96,51 @@ export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
       : "rgba(0, 0, 0, 0.87)",
 }));
 
-export const skills: {
-  frontend: Array<string>;
-  backend: Array<string>;
-  others: Array<string>;
-} = {
-  frontend: ["HTML5", "Tailwind CSS", "React JS", "Typescript", "Material UI"],
-  backend: ["NodeJS + Express JS", "PostgreSQL", "MySQL"],
-  others: [
-    "Git",
-    "Netlify",
-    "AWS S3",
-    "Cisco Packet Tracer",
-    "Java",
-    "React Query",
-    "Zustand",
-    "Prisma",
-    "Zod",
-  ],
-};
+export const credentialLinks: Array<{
+  name: string;
+  link: string;
+}> = [
+  {
+    name: "linkedin",
+    link: "https://github.com/Hakdoooooooooooog",
+  },
+  {
+    name: "github",
+    link: "https://www.linkedin.com/in/darenz-hicap-58307b339/",
+  },
+  {
+    name: "email",
+    link: "mailto:hicap.darenzjasper@gmail.com",
+  },
+];
+
+export const skills: Array<{
+  name: string;
+  skills: Array<string>;
+}> = [
+  {
+    name: "Frontend",
+    skills: ["HTML5", "Tailwind CSS", "React JS", "Typescript", "Material UI"],
+  },
+  {
+    name: "Backend",
+    skills: ["NodeJS + Express JS", "PostgreSQL", "MySQL"],
+  },
+  {
+    name: "Others",
+    skills: [
+      "Git",
+      "Netlify",
+      "AWS S3",
+      "Cisco Packet Tracer",
+      "Java",
+      "React Query",
+      "Zustand",
+      "Prisma",
+      "Zod",
+    ],
+  },
+];
 
 export const certifications: Array<{
   name: string;
@@ -168,6 +194,15 @@ export const projects: Array<{
     ],
   },
   {
+    title: "Portfolio",
+    description:
+      "A personal portfolio website showcasing my skills and projects.",
+    imgSrc: "images/projects/portfolio-thumbnail.png",
+    github: "https://github.com/Hakdoooooooooooog/Portfolio",
+    demo: "https://beamish-toffee-d2d8f4.netlify.app/",
+    technologies: ["React JS", "Typescript", "Tailwind CSS", "Material UI"],
+  },
+  {
     title: "Topcit LCMS API",
     description:
       "A RESTful API for the TOPCIT LCMS application using NodeJS and Express JS.",
@@ -187,15 +222,6 @@ export const projects: Array<{
     github:
       "https://github.com/Hakdoooooooooooog/Event-management-system-server",
     technologies: ["NodeJS + Express JS", "MySQL", "Prisma"],
-  },
-  {
-    title: "Portfolio",
-    description:
-      "A personal portfolio website showcasing my skills and projects.",
-    imgSrc: "images/projects/portfolio-thumbnail.png",
-    github: "https://github.com/Hakdoooooooooooog/Portfolio",
-    demo: "https://beamish-toffee-d2d8f4.netlify.app/",
-    technologies: ["React JS", "Typescript", "Tailwind CSS", "Material UI"],
   },
   {
     title: "Ordering System",

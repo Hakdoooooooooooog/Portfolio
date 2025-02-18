@@ -15,23 +15,15 @@ const CustomCard = ({
 }: CardProps & { children?: React.ReactNode }) => {
   return (
     <Card
+      className="grid justify-items-center items-center text-center p-1 rounded-md !mix-blend-hard-light"
       sx={{
-        display: "grid",
-        gridTemplateRows: "auto 1fr auto",
-        justifyItems: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: 1,
-        borderRadius: 2,
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backgroundColor: theme === "dark" ? "#2c3a33a8" : "#f0f0f0",
       }}
     >
       <StyledImageComponent
         src={imgSrc}
         alt={title}
-        sx={{
-          padding: 1,
-        }}
+        className="!rounded-md p-2"
       />
       <Typography
         variant="subtitle1"
@@ -39,7 +31,7 @@ const CustomCard = ({
           width: "15ch",
           wordWrap: "break-word",
           marginTop: 1,
-          color: theme === "dark" ? "text.primary" : "text.secondary",
+          color: theme === "dark" ? "#fff" : "text.primary",
         }}
       >
         {title}
