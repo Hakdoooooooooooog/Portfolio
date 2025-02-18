@@ -165,7 +165,7 @@ const Home = () => {
                 </Typography>
                 <Box
                   component={"div"}
-                  className="grid gap-5 mb-5 justify-items-center sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))]"
+                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(5vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))]"
                 >
                   {skill.skills.length > 0 &&
                     skill.skills.map((skill, index) => (
