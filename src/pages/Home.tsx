@@ -183,7 +183,7 @@ const Home = () => {
 
           <Box
             component={"div"}
-            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff] lg:max-h-[150dvh] xl:max-h-[110dvh] lg:overflow-y-auto scroll-mr-2.5"
+            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff]  xl:max-h-[110dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto scroll-mr-2.5"
             sx={{
               "&::-webkit-scrollbar": {
                 width: 5,
