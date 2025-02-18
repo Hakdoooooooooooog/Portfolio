@@ -46,7 +46,7 @@ const Home = () => {
               Hello! My name is Darenz Jasper A. Hicap,
             </Typography>
 
-            <Typography variant="subtitle1" className="!text-justify ">
+            <Typography variant="subtitle1" className="!text-justify">
               A 22-years old web developer, lived in Rosario, Cavite,
               Philippines. Currently studying Bachelor of Science in Information
               Technology in Cavite State University - Main Campus. Specializing
@@ -57,14 +57,14 @@ const Home = () => {
               developer.
             </Typography>
 
-            <Typography variant="subtitle1" className="!text-justify ">
+            <Typography variant="subtitle1" className="!text-justify">
               You can contact me through my email, LinkedIn, or GitHub account
               indicated below:
             </Typography>
 
             <Box
               component={"div"}
-              className="w-full grid gap-4 grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] grid-rows-2"
+              className="w-full grid gap-5 grid-cols-[repeat(auto-fit,_minmax(30vw,_1fr))] grid-rows-2"
               sx={{
                 gridTemplateAreas: `
                   "email linkedin"
@@ -152,7 +152,7 @@ const Home = () => {
                 component={"div"}
                 className="w-full flex flex-col gap-10 justify-center"
               >
-                <Typography variant="h4" className="relative !mt-5">
+                <Typography variant="h4" className="relative">
                   {skill.name}
                   <Box
                     component={"span"}
@@ -165,7 +165,7 @@ const Home = () => {
                 </Typography>
                 <Box
                   component={"div"}
-                  className="grid gap-5 justify-items-center sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))]"
+                  className="grid gap-5 mb-5 justify-items-center sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))]"
                 >
                   {skill.skills.length > 0 &&
                     skill.skills.map((skill, index) => (
@@ -260,7 +260,7 @@ const Home = () => {
             projects.map((project, index) => (
               <Card
                 key={index}
-                className="w-full grid gap-5 p-4 justify-items-center items-center text-center rounded-md"
+                className="w-full grid gap-5 p-4 justify-items-center content-between items-center text-center rounded-md"
                 sx={{
                   background:
                     theme.palette.mode === "dark"
