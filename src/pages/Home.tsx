@@ -254,13 +254,13 @@ const Home = () => {
         <Typography variant="h4">My Notable Projects</Typography>
         <Box
           component={"div"}
-          className="grid w-full gap-10 p-10 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(25vw,1fr))]"
+          className="grid w-full gap-10 p-10 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))]"
         >
           {projects.length > 0 &&
             projects.map((project, index) => (
               <Card
                 key={index}
-                className="w-full grid gap-5 p-4 justify-items-center content-between items-center text-center rounded-md"
+                className="w-full grid gap-5 p-4 justify-items-center content-between text-center rounded-md"
                 sx={{
                   background:
                     theme.palette.mode === "dark"
@@ -326,7 +326,7 @@ const Home = () => {
                 </Box>
                 <Box
                   component={"div"}
-                  className="flex flex-wrap gap-2"
+                  className="flex  flex-wrap gap-2 justify-center w-full"
                   sx={{
                     gridArea: "buttons",
                   }}
@@ -338,6 +338,7 @@ const Home = () => {
                       startIcon={<GitHubIcon />}
                       href={project.github}
                       target="_blank"
+                      className="sm:w-[100%] md:w-fit"
                       sx={{
                         color: theme.palette.mode === "dark" ? "#fff" : "#000",
                         borderColor:
@@ -355,6 +356,7 @@ const Home = () => {
                       startIcon={<SendIcon />}
                       href={project.demo}
                       target="_blank"
+                      className="sm:w-[100%] md:w-fit"
                       sx={{
                         color: theme.palette.mode === "dark" ? "#fff" : "#000",
                         borderColor:
