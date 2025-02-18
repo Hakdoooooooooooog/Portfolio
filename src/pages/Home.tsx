@@ -165,7 +165,7 @@ const Home = () => {
                 </Typography>
                 <Box
                   component={"div"}
-                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))]"
+                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(10vw,1fr))]"
                 >
                   {skill.skills.length > 0 &&
                     skill.skills.map((skill, index) => (
@@ -183,7 +183,19 @@ const Home = () => {
 
           <Box
             component={"div"}
-            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff]"
+            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff] lg:max-h-[150dvh] xl:max-h-[100dvh] lg:overflow-y-auto lg:scroll-mr-2.5"
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 5,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                background: "gray",
+                borderRadius: 5,
+              },
+              "&::-webkit-scrollbar-track": {
+                background: "transparent",
+              },
+            }}
           >
             <Typography variant="h4" className="relative mb-5">
               Certifications
@@ -226,7 +238,7 @@ const Home = () => {
                         <StyledImageComponent
                           src={`images/certifications/${cert}.png`}
                           alt="cisco"
-                          className="!rounded-md max-w-[20rem] p-2"
+                          className="!rounded-md max-w-[15rem] md:max-w-[15vw] p-2"
                         />
                         <Typography
                           variant="h6"
