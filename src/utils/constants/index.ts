@@ -198,7 +198,7 @@ export const projects: Array<{
       "A personal portfolio website showcasing my skills and projects.",
     imgSrc: "images/projects/portfolio-thumbnail.png",
     github: "https://github.com/Hakdoooooooooooog/Portfolio",
-    demo: "https://beamish-toffee-d2d8f4.netlify.app/",
+    demo: "https://darenzhicap.netlify.app/",
     technologies: ["React JS", "Typescript", "Tailwind CSS", "Material UI"],
   },
   {
