@@ -24,7 +24,7 @@ const CustomCard = ({
       <StyledImageComponent
         src={imgSrc}
         alt={title}
-        className="!rounded-md p-2 row-span-1 max-w-[5rem]"
+        className="!rounded-md p-2 row-span-1 max-w-[25vw] sm:max-w-[10vw] md:max-w-[8vw] xl:max-w-[5vw] aspect-square !object-fill"
       />
       <Typography
         variant="subtitle1"

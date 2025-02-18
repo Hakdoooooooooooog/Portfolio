@@ -18,7 +18,6 @@ export const StyledImageComponent = styled("img")(({ theme }) => {
   const baseImageStyle = {
     width: "100%",
     borderRadius: "20%",
-    aspectRatio: "1/1",
     background: theme.palette.mode === "dark" ? "hsl(150,14%,20%)" : "#f9fafa",
     boxShadow:
       theme.palette.mode === "dark"
@@ -29,7 +28,7 @@ export const StyledImageComponent = styled("img")(({ theme }) => {
 
   return {
     ...baseImageStyle,
-    flex: "0 0 auto",
+    objectFit: "cover",
     textAlign: "center",
   };
 });

@@ -30,7 +30,7 @@ const Home = () => {
         <StyledImageComponent
           src="/images/profile.jpg"
           alt="profile picture"
-          className="rounded-full !w-[100%] max-w-[25rem] flex-[0_0_auto] mb-5"
+          className="!rounded-full sm:max-w-[20vw] max-w-full mb-10 border-4 border-[#000] dark:border-[#fff] aspect-square"
         />
         <Box component={"div"} className="flex flex-wrap">
           <Box
@@ -238,7 +238,7 @@ const Home = () => {
                         <StyledImageComponent
                           src={`images/certifications/${cert}.png`}
                           alt="cisco"
-                          className="!rounded-md max-w-[15rem] md:max-w-[15vw] p-2"
+                          className="!rounded-md max-w-full sm:max-w-[20vw] md:max-w-[18vw] xl:max-w-[15vw]"
                         />
                         <Typography
                           variant="h6"
@@ -289,7 +289,7 @@ const Home = () => {
                   <StyledImageComponent
                     src={project.imgSrc}
                     alt={project.title}
-                    className="!rounded-md !w-[25rem] !h-[15rem]"
+                    className="!rounded-md p-2 aspect-video max-w-full sm:max-w-[30vw] md:max-w-[28vw] xl:max-w-[25vw]"
                     sx={{
                       gridArea: "img",
                     }}
