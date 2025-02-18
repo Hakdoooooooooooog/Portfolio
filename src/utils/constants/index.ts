@@ -16,8 +16,7 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 export const StyledImageComponent = styled("img")(({ theme }) => {
   const baseImageStyle = {
-    width: 100,
-    height: 100,
+    width: "100%",
     borderRadius: "20%",
     aspectRatio: "1/1",
     background: theme.palette.mode === "dark" ? "hsl(150,14%,20%)" : "#f9fafa",

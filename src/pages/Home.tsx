@@ -30,7 +30,7 @@ const Home = () => {
         <StyledImageComponent
           src="/images/profile.jpg"
           alt="profile picture"
-          className="rounded-full !w-[25rem] !h-[25rem] flex-[0_0_auto] mb-5"
+          className="rounded-full !w-[100%] max-w-[25rem] flex-[0_0_auto] mb-5"
         />
         <Box component={"div"} className="flex flex-wrap">
           <Box
@@ -226,7 +226,7 @@ const Home = () => {
                         <StyledImageComponent
                           src={`images/certifications/${cert}.png`}
                           alt="cisco"
-                          className="!rounded-md !w-[300px] !h-[200px] p-2"
+                          className="!rounded-md max-w-[20rem] p-2"
                         />
                         <Typography
                           variant="h6"
