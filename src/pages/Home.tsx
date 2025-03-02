@@ -1,52 +1,154 @@
-import { Box, Button, Card, Typography, useTheme } from "@mui/material";
+import { motion } from "framer-motion";
+import { useTheme } from "@mui/material";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { useThemeStore } from "../utils/stores";
 import {
+  baseBoxStyles,
   certifications,
   credentialLinks,
   projects,
   skills,
-  StyledBoxComponent,
-  StyledContainer,
-  StyledImageComponent,
 } from "../utils/constants";
 import SendIcon from "@mui/icons-material/Send";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import CustomCard from "../components/Card";
 import { DownloadOutlined } from "@mui/icons-material";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import CustomCard from "@/components/Card";
 
 const Home = () => {
+  const [gridAreasContacts, setGridAreasContacts] = useState(`
+    "email 
+    github 
+    linkedin"
+  `);
+  const [gridAreasSkills, setGridAreasSkills] = useState(`
+    "technologies certifications"
+  `);
+
   const { darkMode } = useThemeStore();
   const theme = useTheme();
 
   theme.palette.mode = darkMode ? "dark" : "light";
 
+  useEffect(() => {
+    const handleResize = () => {
+      setGridAreasContacts(
+        window.innerWidth > 640
+          ? `
+            "email github"
+            "linkedin linkedin"
+          `
+          : `
+            "email"
+            "github"
+            "linkedin"
+          `
+      );
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setGridAreasSkills(
+        window.innerWidth > 640
+          ? `
+            "technologies certifications"
+          `
+          : `
+            "technologies"
+            "certifications"
+          `
+      );
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <StyledContainer>
-      <StyledBoxComponent
+    <div
+      className={cn(
+        baseBoxStyles,
+        `${
+          theme.palette.mode === "dark"
+            ? "bg-linear-[0deg,rgba(34,23,122,1)_0%,rgba(113,111,178,0.7)_60%,rgba(142,163,166,1)_90%,rgba(153,153,153,1)_100%]"
+            : " bg-linear-[0deg,rgba(51,40,139,0.7)_0%,rgba(96,94,161,1)_60%,rgba(159,180,183,0.7)_90%,rgba(170,170,170,0.7)_100%]"
+        } flex-col gap-10`
+      )}
+    >
+      <div
         id="about"
-        className="flex-wrap gap-10 max-w-[70vw] mx-auto my-10 sm:flex-col sm:items-center md:flex-row md:justify-center md:items-center"
+        className={cn(
+          baseBoxStyles,
+          "flex-wrap gap-10 max-w-[75vw] mx-auto my-10 sm:flex-col sm:items-center md:flex-row md:justify-center md:items-center md:max-w-[50vw] xl:max-w-[60vw]"
+        )}
       >
-        <StyledImageComponent
-          src="/images/profile.jpg"
-          alt="profile picture"
-          className="!rounded-full max-w-full sm:max-w-[40vw] md:max-w[35vw] lg:max-w[30vw] xl:max-w-[25vw] mb-10 border-4 border-[#000] dark:border-[#fff] aspect-square"
-        />
-        <Box component={"div"} className="flex flex-wrap">
-          <Box
-            component={"div"}
-            className="flex flex-col gap-5 sm:align-center sm:justify-center md:items-start md:justify-start"
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
+        <motion.div
+          initial={{ translateX: -100, opacity: 0 }}
+          animate={{ translateX: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="w-screen sm:max-w-[40vw] md:max-w-[35vw] lg:max-w-[25vw] xl:max-w-[20vw] mb-10"
+        >
+          <AspectRatio ratio={1 / 1}>
+            <img
+              src="/images/profile.jpg"
+              alt="profile picture"
+              className="rounded-full w-full h-full object-cover border-4 border-[#000] dark:border-[#fff]"
+            />
+          </AspectRatio>
+        </motion.div>
+
+        <div className="flex flex-wrap">
+          <div className="flex flex-col gap-5 sm:align-center sm:justify-center md:items-start md:justify-start">
+            <motion.h3
+              className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+              style={{
+                color: theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+              }}
+              initial={{
+                translateX: -100,
+                opacity: 0,
+              }}
+              animate={{
+                translateX: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 0.75,
               }}
             >
               Hello! My name is Darenz Jasper A. Hicap,
-            </Typography>
+            </motion.h3>
 
-            <Typography variant="subtitle1" className="!text-justify">
+            <motion.p
+              className="leading-7 [&:not(:first-child)]:mt-6 text-justify"
+              initial={{ translateX: -100, opacity: 0 }}
+              animate={{ translateX: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.75 }}
+              style={{
+                color: theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+              }}
+            >
               A 22-years old web developer, lived in Rosario, Cavite,
               Philippines. Currently studying Bachelor of Science in Information
               Technology in Cavite State University - Main Campus. Specializing
@@ -55,45 +157,64 @@ const Home = () => {
               Node.js). I am highly motivated and eager to learn new web
               technologies and frameworks to help me improve my skills as a
               developer.
-            </Typography>
+            </motion.p>
 
-            <Typography variant="subtitle1" className="!text-justify">
-              You can contact me through my email, LinkedIn, or GitHub account
-              indicated below:
-            </Typography>
-
-            <Box
-              component={"div"}
-              className="w-full grid gap-5 grid-cols-[repeat(auto-fit,_minmax(30vw,_1fr))] grid-rows-2"
-              sx={{
-                gridTemplateAreas: `
-                  "email linkedin"
-                  "github github"
-                `,
-                "@media (max-width: 640px)": {
-                  gridTemplateAreas: `
-                    "email"
-                    "linkedin"
-                    "github"
-                  `,
-                },
+            <motion.p
+              className="leading-7 [&:not(:first-child)]:mt-6 text-justify"
+              initial={{ translateX: -100, opacity: 0 }}
+              animate={{ translateX: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              style={{
+                color: theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
               }}
             >
+              You can contact me through my email, LinkedIn, or GitHub account
+              indicated below:
+            </motion.p>
+
+            <motion.div
+              className="w-full grid gap-5 grid-cols-[repeat(auto-fit,_minmax(40vw,_1fr))]"
+              style={{
+                gridTemplateAreas: gridAreasContacts,
+              }}
+              initial={{ translateX: -100, opacity: 0 }}
+              animate={{ translateX: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.25 }}
+            >
               {credentialLinks.map((credential, index) => (
-                <Typography
+                <p
                   key={index}
-                  variant="body1"
-                  sx={{
-                    display: "flex",
-                    gap: theme.spacing(1),
-                    gridArea: credential.name,
+                  className="flex items-center gap-2 text-lg font-semibold"
+                  style={{
+                    color:
+                      theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
                   }}
                 >
-                  {credential.name === "email" && <SendIcon />}
-                  {credential.name === "github" && <GitHubIcon />}
-                  {credential.name === "linkedin" && <LinkedInIcon />}
-                  <Box
-                    component={"a"}
+                  {credential.name === "email" && (
+                    <SendIcon
+                      sx={{
+                        color:
+                          theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+                      }}
+                    />
+                  )}
+                  {credential.name === "github" && (
+                    <GitHubIcon
+                      sx={{
+                        color:
+                          theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+                      }}
+                    />
+                  )}
+                  {credential.name === "linkedin" && (
+                    <LinkedInIcon
+                      sx={{
+                        color:
+                          theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+                      }}
+                    />
+                  )}
+                  <a
                     href={credential.link}
                     target="_blank"
                     className="hover:focus:underline"
@@ -101,72 +222,66 @@ const Home = () => {
                     {credential.link.includes("mailto")
                       ? credential.link.split("mailto:")[1]
                       : credential.link.split("https://")[1]}
-                  </Box>
-                </Typography>
+                  </a>
+                </p>
               ))}
-            </Box>
+            </motion.div>
 
-            <Typography variant="subtitle1" className="!text-justify">
-              Or download my resume:
-            </Typography>
-            <Button
-              variant="outlined"
-              startIcon={<DownloadOutlined />}
-              href="https://drive.google.com/file/d/1F-SaiHUiLTZfFG0KyoD5EE6N7ByUTHdi/view?usp=drive_link"
-              target="_blank"
-              sx={{
-                color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                borderColor: theme.palette.mode === "dark" ? "#fff" : "#000",
+            <p
+              className="leading-7"
+              style={{
+                color: theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
               }}
             >
-              Download Resume
+              Or download my resume:
+            </p>
+            <Button variant="link" asChild className="relative">
+              <div className="absolute flex items-center gap-2 border-2 border-[#000] dark:border-[#fff] p-2 rounded-md">
+                <DownloadOutlined />
+                <a
+                  href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
+                  target="_blank"
+                  className="font-semibold hover:focus:underline"
+                >
+                  Download Resume
+                </a>
+              </div>
             </Button>
-          </Box>
-        </Box>
-      </StyledBoxComponent>
+          </div>
+        </div>
+      </div>
 
-      <StyledBoxComponent id="skills" className="w-full flex flex-col gap-10">
-        <Box
-          component={"div"}
-          className="w-full grid gap-6 p-10 sm:grid-cols-[1fr] md:p-5 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.5fr_1fr] bg-[#666] dark:bg-[hsl(0, 0%, 80%)]"
-          sx={{
-            background:
-              "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)",
-            "@media (max-width: 640px)": {
-              gridTemplateAreas: `
-                    "technologies"
-                    "certifications"
-                  `,
-            },
-            "@media (min-width: 641px)": {
-              gridTemplateAreas: `
-                    "technologies certifications"
-                  `,
-            },
+      <div
+        id="skills"
+        className={cn(baseBoxStyles, "w-full flex flex-col gap-10")}
+      >
+        <div
+          className="w-full grid gap-6 p-10 sm:grid-cols-[1fr] md:p-5 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.5fr_1fr] bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
+          style={{
+            gridTemplateAreas: gridAreasSkills,
           }}
         >
-          <Box sx={{ gridArea: "technologies" }}>
+          <div
+            style={{
+              gridArea: "technologies",
+            }}
+          >
             {skills.map((skill, index) => (
-              <Box
+              <motion.div
                 key={index}
-                component={"div"}
                 className="w-full flex flex-col gap-10 justify-center"
               >
-                <Typography variant="h4" className="relative">
+                <h4 className="relative mb-5 text-2xl font-bold">
                   {skill.name}
-                  <Box
-                    component={"span"}
+                  <span
                     className="absolute left-1/2 bottom-[-8px] w-full h-[4px] transform translate-x-[-50%]"
-                    sx={{
+                    style={{
                       background:
                         theme.palette.mode === "dark" ? "#fff" : "#000",
                     }}
                   />
-                </Typography>
-                <Box
-                  component={"div"}
-                  className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(17vw,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(12vw,1fr))]"
-                >
+                </h4>
+                <div className="grid gap-5 mb-5 justify-items-center grid-cols-[repeat(auto-fit,_minmax(25vw,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(10vw,_1fr))] md:grid-cols-[repeat(auto-fit,minmax(15vw,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(17vw,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(12vw,1fr))]">
                   {skill.skills.length > 0 &&
                     skill.skills.map((skill, index) => (
                       <CustomCard
@@ -176,104 +291,84 @@ const Home = () => {
                         theme={theme.palette.mode}
                       />
                     ))}
-                </Box>
-              </Box>
+                </div>
+              </motion.div>
             ))}
-          </Box>
+          </div>
 
-          <Box
-            component={"div"}
-            className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff]  xl:max-h-[110dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto scroll-mr-2.5"
-            sx={{
-              "&::-webkit-scrollbar": {
-                width: 5,
-              },
-              "&::-webkit-scrollbar-thumb": {
-                background: "gray",
-                borderRadius: 5,
-              },
-              "&::-webkit-scrollbar-track": {
-                background: "transparent",
-              },
-            }}
-          >
-            <Typography variant="h4" className="relative mb-5">
+          <div className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff]  xl:max-h-[110dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto scroll-mr-2.5 [&::-webkit-scrollbar]:w-[5px] [&::-webkit-scrollbar-thumb]:bg-gray-500 [&::-webkit-scrollbar-track]:bg-transparent">
+            <h4 className="relative mb-5 text-2xl font-bold">
               Certifications
-              <Box
-                component={"span"}
+              <span
                 className="absolute left-1/2 bottom-[-8px] w-full h-[4px] transform translate-x-[-50%] bg-[#000] dark:bg-[#fff]"
-                sx={{
+                style={{
                   background: theme.palette.mode === "dark" ? "#fff" : "#000",
                 }}
               />
-            </Typography>
+            </h4>
             {certifications.length > 0 &&
               certifications.map((certification, index) => (
-                <Box
-                  key={index}
-                  component={"div"}
-                  className="flex flex-col gap-5"
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      marginY: theme.spacing(2),
+                <div key={index} className="flex flex-col gap-5">
+                  <h6
+                    className="my-5 text-[1rem] font-bold"
+                    style={{
+                      color:
+                        theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
                     }}
                   >
                     {certification.name}
-                  </Typography>
+                  </h6>
 
                   {certification.certifications.length > 0 &&
                     certification.certifications.map((cert, index) => (
                       <Card
                         key={index}
                         className="grid gap-3 justify-items-center items-center text-center p-3 rounded-md bg-opacity-10 sm:grid-cols-[1fr] md:grid-cols-[1fr_1fr] !mix-blend-hard-light"
-                        sx={{
+                        style={{
                           backgroundColor:
                             theme.palette.mode === "dark"
                               ? "#2c3a33a8"
                               : "#f0f0f0",
                         }}
                       >
-                        <StyledImageComponent
-                          src={`images/certifications/${cert}.png`}
-                          alt="cisco"
-                          className="!rounded-md max-w-full sm:max-w-[20vw] md:max-w-[18vw] xl:max-w-[15vw]"
-                        />
-                        <Typography
-                          variant="h6"
-                          sx={{
+                        <AspectRatio ratio={16 / 9} className="p-2">
+                          <img
+                            src={`images/certifications/${cert}.png`}
+                            alt={cert}
+                            className="rounded-md aspect-video"
+                          />
+                        </AspectRatio>
+                        <h6
+                          className="text-xl font-semibold"
+                          style={{
                             color:
                               theme.palette.mode === "dark"
-                                ? "#fff"
-                                : "text.primary",
+                                ? "#f0f0f0"
+                                : "#2c3a33",
                           }}
                         >
                           {cert}
-                        </Typography>
+                        </h6>
                       </Card>
                     ))}
-                </Box>
+                </div>
               ))}
-          </Box>
-        </Box>
-      </StyledBoxComponent>
+          </div>
+        </div>
+      </div>
 
-      <StyledBoxComponent
+      <div
         id="projects"
-        className="w-full flex flex-col gap-10 mb-10"
+        className={cn(baseBoxStyles, "w-full flex flex-col gap-10")}
       >
-        <Typography variant="h4">My Notable Projects</Typography>
-        <Box
-          component={"div"}
-          className="grid w-full gap-10 p-10 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))]"
-        >
+        <h2 className="text-3xl font-bold">My Notable Projects</h2>
+        <div className="grid w-full gap-10 p-10 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))]">
           {projects.length > 0 &&
             projects.map((project, index) => (
               <Card
                 key={index}
-                className="w-full grid gap-5 p-4 justify-items-center content-between text-center rounded-md"
-                sx={{
+                className="w-full grid gap-5 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
+                style={{
                   background:
                     theme.palette.mode === "dark"
                       ? "linear-gradient(0deg, rgba(96,94,161,0.5) 0%, rgba(142,163,166,0.4) 60%, rgba(153,153,153,0.3) 100%)"
@@ -286,104 +381,103 @@ const Home = () => {
                 }}
               >
                 {project.imgSrc && (
-                  <StyledImageComponent
-                    src={project.imgSrc}
-                    alt={project.title}
-                    className="!rounded-md p-2 aspect-video max-w-full sm:max-w-[30vw] md:max-w-[28vw] xl:max-w-[25vw]"
-                    sx={{
-                      gridArea: "img",
-                    }}
-                  />
+                  <AspectRatio ratio={16 / 9} className="p-2">
+                    <img
+                      src={project.imgSrc}
+                      alt={project.title}
+                      className="rounded-md aspect-video"
+                    />
+                  </AspectRatio>
                 )}
-                <Box
-                  component={"div"}
+                <div
                   className="flex flex-col gap-2 items-center"
-                  sx={{
+                  style={{
                     gridArea: "content",
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                      fontWeight: "bold",
+                  <h6
+                    className="text-2xl font-bold"
+                    style={{
+                      color:
+                        theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
                     }}
                   >
                     {project.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                  </h6>
+                  <p
+                    className="text-lg"
+                    style={{
+                      color:
+                        theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
                     }}
                   >
                     {project.description}
-                  </Typography>
+                  </p>
 
-                  <Box component={"div"} className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies &&
                       project.technologies.length > 0 &&
                       project.technologies.map((tech, index) => (
-                        <StyledImageComponent
-                          key={index}
-                          src={`images/skills/${tech.toLowerCase()}.png`}
-                          alt={tech}
-                          sx={{
-                            width: 50,
-                            height: 50,
-                          }}
-                        />
+                        <div key={index} className="w-10 h-10">
+                          <AspectRatio
+                            ratio={1 / 1}
+                            className={`${
+                              theme.palette.mode === "dark"
+                                ? "bg-[hsl(150,14%,20%)]"
+                                : "bg-[#f9fafa]"
+                            } rounded-md`}
+                          >
+                            <img
+                              src={`images/skills/${tech.toLowerCase()}.png`}
+                              alt={tech}
+                              className="rounded-md aspect-video h-full w-full"
+                            />
+                          </AspectRatio>
+                        </div>
                       ))}
-                  </Box>
-                </Box>
-                <Box
-                  component={"div"}
+                  </div>
+                </div>
+                <div
                   className="flex  flex-wrap gap-2 justify-center w-full"
-                  sx={{
+                  style={{
                     gridArea: "buttons",
                   }}
                 >
                   {project.github && (
-                    <Button
-                      component="a"
-                      variant="outlined"
-                      startIcon={<GitHubIcon />}
-                      href={project.github}
-                      target="_blank"
-                      className="sm:w-[100%] md:w-fit"
-                      sx={{
-                        color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                        borderColor:
-                          theme.palette.mode === "dark" ? "#fff" : "#000",
-                      }}
-                    >
-                      GitHub
+                    <Button variant="link" asChild className="relative">
+                      <div className="absolute flex items-center gap-2 border-2 border-[#000] dark:border-[#fff] p-2 rounded-md">
+                        <GitHubIcon />
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          className="font-semibold hover:focus:underline"
+                        >
+                          GitHub
+                        </a>
+                      </div>
                     </Button>
                   )}
 
                   {project.demo && (
-                    <Button
-                      component="a"
-                      variant="outlined"
-                      startIcon={<SendIcon />}
-                      href={project.demo}
-                      target="_blank"
-                      className="sm:w-[100%] md:w-fit"
-                      sx={{
-                        color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                        borderColor:
-                          theme.palette.mode === "dark" ? "#fff" : "#000",
-                      }}
-                    >
-                      Visit
+                    <Button variant="link" asChild className="relative">
+                      <div className="absolute flex items-center gap-2 border-2 border-[#000] dark:border-[#fff] p-2 rounded-md">
+                        <SendIcon />
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          className="font-semibold hover:focus:underline"
+                        >
+                          Demo
+                        </a>
+                      </div>
                     </Button>
                   )}
-                </Box>
+                </div>
               </Card>
             ))}
-        </Box>
-      </StyledBoxComponent>
-    </StyledContainer>
+        </div>
+      </div>
+    </div>
   );
 };
 

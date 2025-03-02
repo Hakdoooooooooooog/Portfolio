@@ -1,8 +1,8 @@
-import { Box, IconButton, Switch, Typography, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useThemeStore } from "../utils/stores";
-import { StyledAppBar, StyledToolbar } from "../utils/constants";
+import { Switch } from "@/components/ui/switch";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -11,24 +11,55 @@ const Navbar = () => {
   theme.palette.mode = darkMode ? "dark" : "light";
 
   return (
-    <StyledAppBar position="static">
-      <StyledToolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Portfolio
-        </Typography>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton onClick={toggleDarkMode} color="inherit">
-            {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-          <Switch
-            id="darkModeSwitch"
-            checked={darkMode}
-            onChange={toggleDarkMode}
-            color="default"
-          />
-        </Box>
-      </StyledToolbar>
-    </StyledAppBar>
+    // <StyledAppBar position="static">
+    //   <StyledToolbar>
+    //     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+    //       Portfolio
+    //     </Typography>
+    //     <Box sx={{ display: "flex", alignItems: "center" }}>
+    //       <IconButton onClick={toggleDarkMode} color="inherit">
+    //         {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+    //       </IconButton>
+    //       <Switch
+    //         id="darkModeSwitch"
+    //         checked={darkMode}
+    //         onChange={toggleDarkMode}
+    //         color="default"
+    //       />
+    //     </Box>
+    //   </StyledToolbar>
+    // </StyledAppBar>
+
+    <div
+      className="w-full h-fit flex justify-between items-center text-white p-5 opacity-90 fixed top-0 z-10 backdrop-blur-lg border-b-2 border-b-gray-100"
+      style={{
+        backgroundColor: darkMode ? "hsl(252,12%,8%)" : "#f5f5f5",
+      }}
+    >
+      <h1
+        className="text-2xl font-bold"
+        style={{
+          color: darkMode ? "hsl(0,0%,100%)" : "hsl(0,0%,0%)",
+        }}
+      >
+        Portfolio
+      </h1>
+      <div
+        className="flex items-center space-x-2"
+        style={{
+          color: darkMode ? "hsl(0,0%,100%)" : "hsl(0,0%,0%)",
+        }}
+      >
+        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        <Switch
+          id="darkModeSwitch"
+          checked={darkMode}
+          onChange={toggleDarkMode}
+          onClick={toggleDarkMode}
+          color={darkMode ? "primary" : "default"}
+        />
+      </div>
+    </div>
   );
 };
 

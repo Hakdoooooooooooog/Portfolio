@@ -1,4 +1,7 @@
-import { styled, AppBar, Toolbar, Box } from "@mui/material";
+import { styled, AppBar, Toolbar } from "@mui/material";
+
+export const baseBoxStyles =
+  "flex justify-center items-center w-full min-h-[80dvh] gap-6 pt-10";
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
   background: theme.palette.mode === "dark" ? "hsl(260,14%,8%)" : "#f9fafa",
@@ -13,79 +16,6 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
   mixBlendMode: theme.palette.mode === "dark" ? "screen" : "overlay",
   transition: theme.transitions.create(["background-color", "box-shadow"]),
 }));
-
-export const StyledImageComponent = styled("img")(({ theme }) => {
-  const baseImageStyle = {
-    width: "100%",
-    borderRadius: "20%",
-    background: theme.palette.mode === "dark" ? "hsl(150,14%,20%)" : "#f9fafa",
-    boxShadow:
-      theme.palette.mode === "dark"
-        ? "0 1px 3px rgba(0, 0, 0, 0.2)"
-        : theme.shadows[4],
-    transition: theme.transitions.create(["background-color", "box-shadow"]),
-  };
-
-  return {
-    ...baseImageStyle,
-    objectFit: "cover",
-    textAlign: "center",
-  };
-});
-
-export const StyledBoxComponent = styled(Box)(() => {
-  const baseBoxStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 5,
-    width: "100%",
-    minHeight: "80dvh",
-  };
-  return {
-    ...baseBoxStyle,
-  };
-});
-
-export const StyledFooter = styled("footer")(({ theme }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
-  gap: theme.spacing(2),
-  padding: theme.spacing(2),
-  background: theme.palette.mode === "dark" ? "hsl(260,14%,8%)" : "#f9fafa",
-  color:
-    theme.palette.mode === "dark"
-      ? "rgba(255, 255, 255, 0.7)"
-      : "rgba(0, 0, 0, 0.87)",
-  boxShadow: theme.shadows[4],
-  transition: theme.transitions.create(["background-color", "box-shadow"]),
-}));
-
-export const StyledContainer = styled(Box)(({ theme }) => {
-  const baseBoxStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
-  };
-
-  return {
-    ...baseBoxStyle,
-    flexDirection: "column",
-    gap: theme.spacing(15),
-    background:
-      theme.palette.mode === "dark"
-        ? "linear-gradient(0deg, rgba(34,23,122,1) 0%, rgba(96,94,161,1) 60%, rgba(142,163,166,1) 90%, rgba(153,153,153,1) 100%)"
-        : "linear-gradient(0deg, rgba(51, 40, 139, 0.7) 0%, rgba(113, 111, 178, 0.7) 60%, rgba(159, 180, 183, 0.7) 90%, rgba(170, 170, 170, 0.7) 100%)",
-    color:
-      theme.palette.mode === "dark"
-        ? "rgba(255, 255, 255, 0.7)"
-        : "rgba(0, 0, 0, 0.87)",
-    transition: theme.transitions.create(["background-color", "color"]),
-  };
-});
 
 export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   color:
