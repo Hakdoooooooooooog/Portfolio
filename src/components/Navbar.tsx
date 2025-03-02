@@ -11,25 +11,6 @@ const Navbar = () => {
   theme.palette.mode = darkMode ? "dark" : "light";
 
   return (
-    // <StyledAppBar position="static">
-    //   <StyledToolbar>
-    //     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-    //       Portfolio
-    //     </Typography>
-    //     <Box sx={{ display: "flex", alignItems: "center" }}>
-    //       <IconButton onClick={toggleDarkMode} color="inherit">
-    //         {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-    //       </IconButton>
-    //       <Switch
-    //         id="darkModeSwitch"
-    //         checked={darkMode}
-    //         onChange={toggleDarkMode}
-    //         color="default"
-    //       />
-    //     </Box>
-    //   </StyledToolbar>
-    // </StyledAppBar>
-
     <div
       className="w-full h-fit flex justify-between items-center text-white p-5 opacity-90 fixed top-0 z-10 backdrop-blur-lg border-b-2 border-b-gray-100"
       style={{
