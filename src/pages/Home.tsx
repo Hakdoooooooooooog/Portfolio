@@ -373,7 +373,7 @@ const Home = () => {
             projects.map((project, index) => (
               <RevealItem key={index}>
                 <Card
-                  className="h-[32rem] 2xl:h-[40rem] max-h-fit grid gap-4 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
+                  className="h-[40rem] max-h-[30rem] sm:max-h-[32rem] md:max-h-[35rem] lg:max-h-[38rem] grid gap-4 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
                   style={{
                     background:
                       theme.palette.mode === "dark"
