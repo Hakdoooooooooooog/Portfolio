@@ -28,7 +28,7 @@ const CustomCard = ({
             ratio={1 / 1}
             className="p-2"
             style={{
-              backgroundColor: theme === "dark" ? "#2c3a33" : "#f0f0f0",
+              backgroundColor: theme === "dark" ? "#2c3a33" : "#fff",
               borderRadius: "1rem",
             }}
           >
