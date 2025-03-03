@@ -361,7 +361,7 @@ const Home = () => {
         className={cn(baseBoxStyles, "w-full flex flex-col gap-10")}
       >
         <h2 className="text-3xl font-bold">My Notable Projects</h2>
-        <div className="grid w-full gap-4 p-5 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(35vw,1fr))]">
+        <div className="grid w-full gap-4 p-5 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(35vw,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(25vw,1fr))]">
           {projects.length > 0 &&
             projects.map((project, index) => (
               <RevealItem key={index}>
