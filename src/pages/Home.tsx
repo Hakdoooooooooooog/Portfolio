@@ -361,12 +361,12 @@ const Home = () => {
         className={cn(baseBoxStyles, "w-full flex flex-col gap-10")}
       >
         <h2 className="text-3xl font-bold">My Notable Projects</h2>
-        <div className="grid w-full gap-10 p-10 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))]">
+        <div className="grid w-full gap-4 p-5 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(35vw,1fr))]">
           {projects.length > 0 &&
             projects.map((project, index) => (
               <RevealItem key={index}>
                 <Card
-                  className="min-h-[65dvh] grid gap-5 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
+                  className="h-[32rem] max-h-fit grid gap-4 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
                   style={{
                     background:
                       theme.palette.mode === "dark"
@@ -394,7 +394,7 @@ const Home = () => {
                     </div>
                   )}
                   <div
-                    className="flex flex-col gap-2 items-center"
+                    className="flex flex-col gap-4 justify-evenly items-center w-full"
                     style={{
                       gridArea: "content",
                     }}

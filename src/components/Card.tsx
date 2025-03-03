@@ -17,7 +17,7 @@ const CustomCard = ({
   return (
     <RevealItem classname="max-w-[35vw] sm:max-w-[25vw] md:max-w-[20vw] lg:max-w-[15vw] xl:max-w-[10vw]">
       <Card
-        className="min-h-[25dvh] grid justify-items-center content-between items-center rounded-md !mix-blend-hard-light hover:!shadow-lg"
+        className="h-[12rem] max-h-fit grid justify-items-center content-between items-center rounded-md !mix-blend-hard-light hover:!shadow-lg"
         style={{
           gridTemplateRows: "auto 1fr",
           backgroundColor: theme === "dark" ? "#2c3a33a8" : "#f0f0f0",
@@ -40,10 +40,9 @@ const CustomCard = ({
           </AspectRatio>
         </div>
         <p
-          className="row-span-1 text-lg font-semibold"
+          className="row-span-1 text-md font-semibold leading-5 text-center p-2"
           style={{
-            textAlign: "center",
-            width: "12ch",
+            maxWidth: "fit-content",
             wordWrap: "break-word",
             color: theme === "dark" ? "#f0f0f0" : "#2c3a33",
           }}
