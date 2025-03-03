@@ -365,15 +365,15 @@ const Home = () => {
 
       <div
         id="projects"
-        className={cn(baseBoxStyles, "w-full flex flex-col gap-10")}
+        className={cn(baseBoxStyles, "w-full flex flex-col gap-10 pb-10")}
       >
         <h2 className="text-3xl font-bold">My Notable Projects</h2>
-        <div className="grid w-full gap-4 p-5 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(35vw,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(25vw,1fr))]">
+        <div className="grid w-full gap-4 p-3 sm:grid-cols-[1fr] md:grid-cols-[repeat(auto-fill,minmax(35vw,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(30vw,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(25vw,1fr))]">
           {projects.length > 0 &&
             projects.map((project, index) => (
               <RevealItem key={index}>
                 <Card
-                  className="h-[32rem] max-h-fit grid gap-4 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
+                  className="h-[32rem] 2xl:h-[40rem] max-h-fit grid gap-4 p-4 justify-items-center content-between text-center rounded-md bg-linear-[0deg,rgba(96,94,161,0.5)_0%,rgba(142,163,166,0.4)_60%,rgba(153,153,153,0.3)_100%]"
                   style={{
                     background:
                       theme.palette.mode === "dark"
@@ -388,7 +388,7 @@ const Home = () => {
                 >
                   {project.imgSrc && (
                     <div
-                      className="w-[70vw] sm:max-w-[45vw] md:max-w-[35vw] lg:max-w-[30vw] xl:max-w-[25vw]"
+                      className="w-[70vw] sm:max-w-[42vw] md:max-w-[33vw] lg:max-w-[28vw] xl:max-w-[25vw]"
                       style={{ gridArea: "img" }}
                     >
                       <AspectRatio ratio={16 / 9} className="p-2">
