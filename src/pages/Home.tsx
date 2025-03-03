@@ -292,66 +292,73 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="pl-5 sm:border-l-5 sm:border-[#000] sm:dark:border-[#fff]  xl:max-h-[110dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto scroll-mr-2.5 [&::-webkit-scrollbar]:w-[5px] [&::-webkit-scrollbar-thumb]:bg-gray-500 [&::-webkit-scrollbar-track]:bg-transparent">
+          <div
+            className="sm:pl-5 sm:border-l-5 sm:border-opacity-10"
+            style={{
+              borderColor: theme.palette.mode === "dark" ? "#fff" : "#000",
+            }}
+          >
             <h4 className="relative mb-5 text-2xl font-bold">
               Certifications
               <span
-                className="absolute left-1/2 bottom-[-8px] w-full h-[4px] transform translate-x-[-50%] bg-[#000] dark:bg-[#fff]"
+                className="absolute left-1/2 bottom-[-8px] w-full h-[4px] transform translate-x-[-50%]"
                 style={{
                   background: theme.palette.mode === "dark" ? "#fff" : "#000",
                 }}
               />
             </h4>
-            {certifications.length > 0 &&
-              certifications.map((certification, index) => (
-                <div key={index} className="flex flex-col gap-5">
-                  <h6
-                    className="my-5 text-[1rem] font-bold"
-                    style={{
-                      color:
-                        theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
-                    }}
-                  >
-                    {certification.name}
-                  </h6>
+            <div className="max-h-fit xl:max-h-[135dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto [&::-webkit-scrollbar]:w-[5px] [&::-webkit-scrollbar-thumb]:bg-gray-500 [&::-webkit-scrollbar-track]:bg-transparent">
+              {certifications.length > 0 &&
+                certifications.map((certification, index) => (
+                  <div key={index} className="flex flex-col gap-5">
+                    <h6
+                      className="my-5 text-[1rem] font-bold"
+                      style={{
+                        color:
+                          theme.palette.mode === "dark" ? "#f0f0f0" : "#2c3a33",
+                      }}
+                    >
+                      {certification.name}
+                    </h6>
 
-                  {certification.certifications.length > 0 &&
-                    certification.certifications.map((cert, index) => (
-                      <RevealItem key={index}>
-                        <Card
-                          className="grid gap-3 justify-items-center items-center text-center p-3 rounded-md bg-opacity-10 sm:grid-cols-[1fr] md:grid-cols-[1fr_1fr] !mix-blend-hard-light"
-                          style={{
-                            backgroundColor:
-                              theme.palette.mode === "dark"
-                                ? "#2c3a33a8"
-                                : "#f0f0f0",
-                          }}
-                        >
-                          <div className="w-[70vw] sm:max-w-[30vw] md:max-w-[25vw] lg:max-w-[20vw] xl:max-w-[20vw]">
-                            <AspectRatio ratio={16 / 9} className="p-2">
-                              <img
-                                src={`images/certifications/${cert}.png`}
-                                alt={cert}
-                                className="rounded-md aspect-video"
-                              />
-                            </AspectRatio>
-                          </div>
-                          <h6
-                            className="text-xl font-semibold"
+                    {certification.certifications.length > 0 &&
+                      certification.certifications.map((cert, index) => (
+                        <RevealItem key={index}>
+                          <Card
+                            className="grid gap-3 justify-items-center items-center text-center p-3 rounded-md bg-opacity-10 sm:grid-cols-[1fr] md:grid-cols-[1fr_1fr] !mix-blend-hard-light"
                             style={{
-                              color:
+                              backgroundColor:
                                 theme.palette.mode === "dark"
-                                  ? "#f0f0f0"
-                                  : "#2c3a33",
+                                  ? "#2c3a33a8"
+                                  : "#f0f0f0",
                             }}
                           >
-                            {cert}
-                          </h6>
-                        </Card>
-                      </RevealItem>
-                    ))}
-                </div>
-              ))}
+                            <div className="w-[70vw] sm:max-w-[35vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[20vw]">
+                              <AspectRatio ratio={16 / 9} className="p-2">
+                                <img
+                                  src={`images/certifications/${cert}.png`}
+                                  alt={cert}
+                                  className="rounded-md aspect-video"
+                                />
+                              </AspectRatio>
+                            </div>
+                            <h6
+                              className="text-xl font-semibold"
+                              style={{
+                                color:
+                                  theme.palette.mode === "dark"
+                                    ? "#f0f0f0"
+                                    : "#2c3a33",
+                              }}
+                            >
+                              {cert}
+                            </h6>
+                          </Card>
+                        </RevealItem>
+                      ))}
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </div>
