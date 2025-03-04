@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, Variants } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 type RevealItemProps = {
@@ -18,27 +18,24 @@ const RevealItem = ({ children, classname }: RevealItemProps) => {
     }
   }, [isInview]);
 
+  const variants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <div ref={ref} className={cn("w-full", classname)}>
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            translateX: -100,
-          },
-          visible: {
-            opacity: 1,
-            translateX: 0,
-            transition: {
-              duration: 0.5,
-
-              ease: "easeInOut",
-            },
-          },
-        }}
-        initial="hidden"
-        animate={mainControl}
-      >
+      <motion.div variants={variants} initial="hidden" animate={mainControl}>
         {children}
       </motion.div>
     </div>
