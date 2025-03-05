@@ -18,7 +18,6 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import CustomCard from "@/components/Card";
 import RevealItem from "@/components/RevealItem";
-import ReactLenis from "lenis/react";
 
 const Home = () => {
   const [gridAreasContacts, setGridAreasContacts] = useState(`
@@ -93,7 +92,7 @@ const Home = () => {
           theme.palette.mode === "dark"
             ? "bg-linear-[0deg,rgba(34,23,122,1)_0%,rgba(113,111,178,0.7)_60%,rgba(142,163,166,1)_90%,rgba(153,153,153,1)_100%]"
             : " bg-linear-[0deg,rgba(51,40,139,0.7)_0%,rgba(96,94,161,1)_60%,rgba(159,180,183,0.7)_90%,rgba(170,170,170,0.7)_100%]"
-        } flex-col gap-10 transition-[backgroundColor] duration-500 ease-in-out`
+        } flex-col gap-10 transition-all duration-500 ease-in-out`
       )}
     >
       <div
