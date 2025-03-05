@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import CustomCard from "@/components/Card";
 import RevealItem from "@/components/RevealItem";
+import ReactLenis from "lenis/react";
 
 const Home = () => {
   const [gridAreasContacts, setGridAreasContacts] = useState(`
@@ -92,7 +93,7 @@ const Home = () => {
           theme.palette.mode === "dark"
             ? "bg-linear-[0deg,rgba(34,23,122,1)_0%,rgba(113,111,178,0.7)_60%,rgba(142,163,166,1)_90%,rgba(153,153,153,1)_100%]"
             : " bg-linear-[0deg,rgba(51,40,139,0.7)_0%,rgba(96,94,161,1)_60%,rgba(159,180,183,0.7)_90%,rgba(170,170,170,0.7)_100%]"
-        } flex-col gap-10`
+        } flex-col gap-10 transition-[backgroundColor] duration-500 ease-in-out`
       )}
     >
       <div
@@ -307,7 +308,10 @@ const Home = () => {
                 }}
               />
             </h4>
-            <div className="max-h-fit xl:max-h-[135dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto [&::-webkit-scrollbar]:w-[5px] [&::-webkit-scrollbar-thumb]:bg-gray-500 [&::-webkit-scrollbar-track]:bg-transparent">
+            <div
+              data-lenis-prevent
+              className="max-h-fit xl:max-h-[135dvh] 2xl:max-h-[150dvh] lg:overflow-y-auto [&::-webkit-scrollbar]:w-[5px] [&::-webkit-scrollbar-thumb]:bg-gray-500 [&::-webkit-scrollbar-track]:bg-transparent"
+            >
               {certifications.length > 0 &&
                 certifications.map((certification, index) => (
                   <div key={index} className="flex flex-col gap-5">
